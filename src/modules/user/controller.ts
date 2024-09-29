@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { UserSchema } from './schema';
+import { CreateUserSchema } from './schema';
 import { sendNotFoundResponse, sendSuccessNoDataResponse, sendSuccessResponse } from '../../utils/responseHandler';
 
 import {
@@ -23,9 +23,9 @@ export async function getUsersHandler(req: Request, res: Response, next: NextFun
 
 export async function createUserHandler(req: Request, res: Response, next: NextFunction) {
   try{
-    const userData = req.body
-    UserSchema.parse(userData)
-    const user = await createUser(userData);
+    const parsedUser = CreateUserSchema.parse(req.body)
+    const user = await createUser(parsedUser);
+
     return sendSuccessResponse(res, user)
   }
   catch(e){
