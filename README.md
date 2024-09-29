@@ -33,7 +33,9 @@ API RESTful com TypeScript, Express, Prisma e zod para manipular a criacao de um
     - `bairro: String` (obrigatorio): Bairro - max 60 caracteres
     - `estado: String` (obrigatorio): Estado - max 60 caracteres
     - `termos: Boolean` (obrigatorio): Termos de uso 
-ex: 
+
+# Ex do body de uma request
+
 ```
 {
   "tipo": "FISICA",
