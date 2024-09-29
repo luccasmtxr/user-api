@@ -13,7 +13,7 @@ import {
 export async function getUsersHandler(req: Request, res: Response, next: NextFunction) {
   try{
     const users = await getUsers();
-    return res.status(200).send(users);
+    return sendSuccessResponse(res, users);
   }
   catch(e){
 
@@ -36,7 +36,7 @@ export async function createUserHandler(req: Request, res: Response, next: NextF
 export async function getUserByIdHandler(req: Request, res: Response, next: NextFunction) {
   try{
     const user = await getUserById(req.params.id);
-    return res.status(200).send(user);
+    return sendSuccessResponse(res, user);
   }
   catch(e){
     
@@ -46,7 +46,7 @@ export async function getUserByIdHandler(req: Request, res: Response, next: Next
 export async function updateUserHandler(req: Request, res: Response, next: NextFunction) {
   try{
     const user = await updateUser(req.params.id, req.body);
-    return res.status(200).send(user);
+    return sendSuccessResponse(res, user)
   }
   catch(e){
     
@@ -56,7 +56,7 @@ export async function updateUserHandler(req: Request, res: Response, next: NextF
 export async function deleteUserHandler(req: Request, res: Response, next: NextFunction) {
   try{
     await deleteUser(req.params.id);
-    return res.status(204).send();
+    return sendSuccessNoDataResponse(res, "User deletado com sucesso")
   }
   catch(e){
     

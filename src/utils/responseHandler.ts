@@ -23,7 +23,7 @@ export const sendSuccessResponse = <T>(
 export const sendSuccessNoDataResponse = (
   res: Response,
   message = 'Operation successful',
-  status = 2002
+  status = 202
 ): Response<SuccessResponse<null>> => {
   return res.status(status).json({ success: true, message });
 };
