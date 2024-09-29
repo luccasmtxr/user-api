@@ -17,7 +17,7 @@ export const errorHandler = (error: any, _request: Request, response: Response, 
 
   if (error instanceof Prisma.PrismaClientKnownRequestError) {
     const res =
-      process.env.APP_ENV == 'developement'
+      process.env.APP_ENV == 'development'
         ? { error: 'Prisma Error occurred', details: error }
         : { error: 'Error occurred' };
 
@@ -25,6 +25,6 @@ export const errorHandler = (error: any, _request: Request, response: Response, 
   }
 
 
-  const res = process.env.APP_ENV == 'developement' ? { message: error.message } : { message: 'Internal Server Error' };
+  const res = process.env.APP_ENV == 'development' ? { message: error.message } : { message: 'Internal Server Error' };
   return sendErrorResponse(response, res);
 };

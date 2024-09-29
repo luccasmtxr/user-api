@@ -34,8 +34,9 @@ API RESTful com TypeScript, Express, Prisma e zod para manipular a criacao de um
     - `estado: String` (obrigatorio): Estado - max 60 caracteres
     - `termos: Boolean` (obrigatorio): Termos de uso 
 
-### Ex do body de uma request
+## Exs do body de uma request
 
+### Pessoa fisica
 ```
 {
   "tipo": "FISICA",
@@ -44,6 +45,25 @@ API RESTful com TypeScript, Express, Prisma e zod para manipular a criacao de um
   "email": "joao@example.com",
   "celular": "(11)98765-4321",
   "email_confirmacao": "joao@example.com",
+  "cep": "22222-022",
+  "logradouro": "Rua das Flores",
+  "numero": 100,
+  "complemento": "Apto 202",
+  "cidade": "São Paulo",
+  "bairro": "Centro",
+  "estado": "SP",
+  "termos": true
+}
+```
+### Pessoa juridica
+```
+{
+  "tipo": "JURIDICA",
+  "identificador": "11.111.111/1111-11",
+  "nome": "João da Silva corp",
+  "email": "joaocorp@example.com",
+  "telefone": "(11)8765-2222",
+  "email_confirmacao": "joaocorp@example.com",
   "cep": "22222-022",
   "logradouro": "Rua das Flores",
   "numero": 100,
