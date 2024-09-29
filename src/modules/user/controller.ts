@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { CreateUserSchema } from './schema';
-import { sendNotFoundResponse, sendSuccessNoDataResponse, sendSuccessResponse } from '../../utils/responseHandler';
+import { sendSuccessNoDataResponse, sendSuccessResponse } from '../../utils/responseHandler';
 
 import {
   getUsers,
@@ -11,54 +11,54 @@ import {
 } from "./service";
 
 export async function getUsersHandler(req: Request, res: Response, next: NextFunction) {
-  try{
+  try {
     const users = await getUsers();
     return sendSuccessResponse(res, users);
   }
-  catch(e){
-
+  catch (e) {
+    next(e)
   }
 
 }
 
 export async function createUserHandler(req: Request, res: Response, next: NextFunction) {
-  try{
+  try {
     const parsedUser = CreateUserSchema.parse(req.body)
     const user = await createUser(parsedUser);
 
     return sendSuccessResponse(res, user)
   }
-  catch(e){
+  catch (e) {
     next(e)
   }
 }
 
 export async function getUserByIdHandler(req: Request, res: Response, next: NextFunction) {
-  try{
+  try {
     const user = await getUserById(req.params.id);
     return sendSuccessResponse(res, user);
   }
-  catch(e){
-    
+  catch (e) {
+    next(e)
   }
 }
 
 export async function updateUserHandler(req: Request, res: Response, next: NextFunction) {
-  try{
+  try {
     const user = await updateUser(req.params.id, req.body);
     return sendSuccessResponse(res, user)
   }
-  catch(e){
-    
+  catch (e) {
+    next(e)
   }
 }
 
 export async function deleteUserHandler(req: Request, res: Response, next: NextFunction) {
-  try{
+  try {
     await deleteUser(req.params.id);
     return sendSuccessNoDataResponse(res, "User deletado com sucesso")
   }
-  catch(e){
-    
+  catch (e) {
+    next(e)
   }
 }
