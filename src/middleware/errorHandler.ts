@@ -6,13 +6,12 @@ import { sendBadRequestResponse, sendErrorResponse, sendValidationError } from "
 export const errorHandler = (error: any, _request: Request, response: Response, next: NextFunction) => {
 
   if (error instanceof z.ZodError) {
-    const errors = error.errors.map((e: any) => {
-      //console.log(e)
-      return (
-        e.message
-      )
-    }) as string[];
-    
+    const errors = error.errors.map((e: any) =>(
+      {
+        [`${e.path[0]}`]: e.message
+      }
+    )) as object[];
+
     return sendValidationError(response, 'Validation Error', errors);
   }
 

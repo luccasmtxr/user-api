@@ -49,7 +49,7 @@ export const sendNotFoundResponse = <T>(
 export const sendValidationError = <T>(
   res: Response,
   message: T,
-  errors: string[],
+  errors: object[],
   status = 400
 ): Response<ErrorResponse<T>> => {
   return res.status(status).json({
