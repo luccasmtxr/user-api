@@ -9,7 +9,7 @@ export const CreateUserSchema = z.object({
   telefone: z.string().regex(new RegExp(/^\(?\d{2}\)?\s?\d{4}-\d{4}$/), "Telefone deve estar dentro do formato (11)1111-1111").optional(),
   email: z.string().email(),
   email_confirmacao: z.string().email(),
-  cep: z.string().regex(new RegExp(/^\d{5}-?\d{3}$/), "CEP deve estar dentro do formato"),
+  cep: z.string().regex(new RegExp(/^\d{5}-?\d{3}$/), "CEP deve estar dentro do formato XXXXX-XXX"),
   logradouro: z.string().min(1).max(60),
   numero: z.number().int().positive().safe(),
   complemento: z.string().optional(),
