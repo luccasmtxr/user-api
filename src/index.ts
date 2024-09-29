@@ -1,5 +1,6 @@
 import express from "express";
 import userRouter from "./modules/user/routes"
+import cepRouter from "./modules/cep/routes"
 import { errorHandler } from './middleware/errorHandler';
 import { notFoundHandler } from "./middleware/notFound";
 
@@ -15,6 +16,7 @@ app.get("/ping", (_req, res) => {
 });
 
 app.use("/user", userRouter);
+app.use("/cep", cepRouter)
 
 app.use(errorHandler);
 app.use(notFoundHandler)

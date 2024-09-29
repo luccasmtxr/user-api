@@ -8,6 +8,7 @@ API RESTful com TypeScript, Express, Prisma e zod para manipular a criacao de um
 ## Utilizando a API
 
 # Endpoints:
+## USER
 
 ### `GET`
 
@@ -82,5 +83,30 @@ API RESTful com TypeScript, Express, Prisma e zod para manipular a criacao de um
 ### `DELETE`
 
 - `/user/:id`: Deleta um user pelo seu `id`
+
+
+## CEP
+### Descricao
+
+Pequena abstracao utilizando a api publica via cep https://viacep.com.br/ - pode ser utilizado para autocompletar campos do formulario
+
+### `GET`
+
+- `/cep/:cep`: Retorna cep, logradouro, bairro, cidade e estado com base no `cep` informado - cep sem pontuacao 
+
+## Exs de uma response 
+```
+http://localhost:4568/cep/01452001
+{
+  "success": true,
+  "data": {
+    "cep": "01452-001",
+    "logradouro": "Avenida Brigadeiro Faria Lima",
+    "bairro": "Jardim Paulistano",
+    "estado": "SP",
+    "cidade": "São Paulo"
+  }
+}
+```
 
 
