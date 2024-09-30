@@ -53,6 +53,17 @@ npm start
 ### `POST` - Endpoint publico
 
 - `/auth/login`: Faz login com o usuario e cria um token jwt armazenado em cookie que sera validado nos endpoints autenticados
+  - Body:
+    - `username: String`
+    - `password: String`
+## Exs do body de uma request com o usuario admin gerado no seed
+```
+{
+  "username": "admin",
+  "password": "admin"
+}
+```
+
 
 ### `POST` - Endpoint autenticado
 
