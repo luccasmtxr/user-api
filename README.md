@@ -18,6 +18,12 @@ npm install
 cp .env.example .env
 ```
 
+### Rodando o docker-compose
+
+```bash
+docker-compose up -d 
+```
+
 #### Aplicando as migracoes
 
 ```bash
