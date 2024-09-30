@@ -1,5 +1,5 @@
 import { Router } from 'express';
-
+import { protectAuth } from '../../middleware/authMiddleware';
 import {
   createUserHandler,
   deleteUserHandler,
@@ -10,10 +10,13 @@ import {
 
 const router = Router();
 
-router.get("/", getUsersHandler);
+//rota publica
 router.post("/", createUserHandler);
-router.get("/:id", getUserByIdHandler);
-router.put("/:id", updateUserHandler);
-router.delete("/:id", deleteUserHandler);
+
+//rotas protegidas
+router.get("/", protectAuth, getUsersHandler);
+router.get("/:id", protectAuth, getUserByIdHandler);
+router.put("/:id", protectAuth, updateUserHandler);
+router.delete("/:id", protectAuth, deleteUserHandler);
 
 export default router;

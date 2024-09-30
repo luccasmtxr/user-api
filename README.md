@@ -3,19 +3,58 @@
 ## Descricao:
 
 API RESTful com TypeScript, Express, Prisma e zod para manipular a criacao de um usuario.
+Autenticacao implementada em algumas rotas como demonstracao.
+
+# Setup
+
+#### Instalando as dependencias:
+
+```bash
+npm install
+```
+
+#### Aplicando as migracoes
+
+```bash
+npx prisma migrate dev
+```
+
+### Rodando o seed
+#### Aqui sera gerada um usuario admin, que pode acessar rotas autenticadas
+
+```bash
+npx prisma db seed
+```
+
+#### Rodando a aplicacao
+
+```bash
+npm start
+```
 
 
 ## Utilizando a API
 
 # Endpoints:
+
+## AUTH
+
+### `POST` - Endpoint publico
+
+- `/auth/login`: Faz login com o usuario e cria um token jwt armazenado em cookie que sera validado nos endpoints autenticados
+
+### `POST` - Endpoint autenticado
+
+- `/auth/logout`: Faz logout com o usuario autenticado
+
 ## USER
 
-### `GET`
+### `GET` - Enpoint autenticado
 
 - `/user/:id`: Retorna o user pelo seu `id`
 - `/user`: Retorna todos os user
 
-### `POST`
+### `POST` - Enpoint publico
 
 - `/user`: Cria um novo user com base no formulario fornecido
   - Body:
@@ -76,21 +115,21 @@ API RESTful com TypeScript, Express, Prisma e zod para manipular a criacao de um
 }
 ```
 
-### `PUT`
+### `PUT` - Enpoint autenticado
 
 - `/user/:id`: Atualiza parcialmente um user pelo seu `id`
 
-### `DELETE`
+### `DELETE` - Enpoint autenticado
 
 - `/user/:id`: Deleta um user pelo seu `id`
 
 
-## CEP
+## CEP 
 ### Descricao
 
 Pequena abstracao utilizando a api publica via cep https://viacep.com.br/ - pode ser utilizado para autocompletar campos do formulario
 
-### `GET`
+### `GET` - Enpoint publico
 
 - `/cep/:cep`: Retorna cep, logradouro, bairro, cidade e estado com base no `cep` informado - cep sem pontuacao 
 

@@ -11,7 +11,7 @@ model User {
   id String @id @default(uuid()) 
   createdAt DateTime @default(now()) @ignore
   updatedAt DateTime @updatedAt @ignore
-  tipo Tipo //pessoa fisica ou juridica
+  tipo Tipo 
   identificador String @unique
   nome String
   celular Int? @unique
@@ -30,4 +30,12 @@ model User {
 enum Tipo {
   FISICA
   JURIDICA
+}
+
+model Admin {
+  id        String   @id @unique
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
