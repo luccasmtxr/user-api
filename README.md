@@ -6,7 +6,7 @@ Autenticacao implementada em algumas rotas como demonstracao.
 
 # Setup
 
-#### Instalando as dependencias:
+## Instalando as dependencias:
 
 ```bash
 npm install
@@ -56,7 +56,7 @@ npm start
   - Body:
     - `username: String`
     - `password: String`
-## Exs do body de uma request com o usuario admin gerado no seed
+#### Exs do body de uma request com o usuario admin gerado no seed
 ```
 {
   "username": "admin",
