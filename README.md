@@ -13,6 +13,12 @@ Autenticacao implementada em algumas rotas como demonstracao.
 npm install
 ```
 
+### Copiando o env
+
+```bash
+cp .env.example .env
+```
+
 #### Aplicando as migracoes
 
 ```bash
